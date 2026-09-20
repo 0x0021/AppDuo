@@ -2,6 +2,31 @@ import XCTest
 @testable import CloneCore
 
 final class EngineTests: XCTestCase {
+    func testRepositoryUpdateAcceptsEquivalentPaths() async throws {
+        let (root, config) = try fixture()
+        defer { try? FileManager.default.removeItem(at: root) }
+        let repository = CloneRepository(root: root.appendingPathComponent("Records"))
+        let records = try await repository.build(config, password: "", updating: false, log: { _ in })
+        var edited = records[0].configuration
+        edited.destination = URL(fileURLWithPath: edited.destination.path, isDirectory: true)
+        edited.displayName = "Updated name"
+        let updated = try await repository.build(edited, password: "", updating: true, log: { _ in })
+        XCTAssertEqual(updated.count, 1)
+        XCTAssertEqual(updated[0].configuration.displayName, "Updated name")
+        XCTAssertEqual(updated[0].id, records[0].id)
+        let alias = root.appendingPathComponent("Alias.app")
+        try FileManager.default.createSymbolicLink(at: alias, withDestinationURL: config.destination)
+        var duplicate = config; duplicate.id = UUID(); duplicate.name = "Another"; duplicate.destination = alias
+        do {
+            _ = try await repository.build(duplicate, password: "", updating: false, log: { _ in })
+            XCTFail("Equivalent destination must be rejected")
+        } catch { XCTAssertEqual(error.localizedDescription, "分身名称或位置已存在") }
+        edited.destination = root.appendingPathComponent("Different.app")
+        do {
+            _ = try await repository.build(edited, password: "", updating: true, log: { _ in })
+            XCTFail("A genuinely different destination must be rejected")
+        } catch { XCTAssertEqual(error.localizedDescription, "找不到待更新分身") }
+    }
     func testSourceUpdateDetectionAndUpgrade() throws {
         let (root, config) = try fixture()
         defer { try? FileManager.default.removeItem(at: root) }

@@ -36,8 +36,8 @@ public actor CloneRepository {
         try locked {
             var records = try load()
             let previous = records.first { $0.id == configuration.id }
-            if updating { guard let previous, previous.configuration.destination == configuration.destination else { throw CloneFailure.invalid("找不到待更新分身") } }
-            else { guard !records.contains(where: { $0.configuration.destination == configuration.destination || $0.configuration.name == configuration.name }) else { throw CloneFailure.invalid("分身名称或位置已存在") } }
+            if updating { guard let previous, Inspector.sameApplication(previous.configuration.destination, as: configuration.destination) else { throw CloneFailure.invalid("找不到待更新分身") } }
+            else { guard !records.contains(where: { Inspector.sameApplication($0.configuration.destination, as: configuration.destination) || $0.configuration.name == configuration.name }) else { throw CloneFailure.invalid("分身名称或位置已存在") } }
             try Secrets.save(password, id: configuration.id)
             var record = try CloneEngine().build(configuration, password: password, updating: updating, log: log)
             if let previous { record.createdAt = previous.createdAt }
