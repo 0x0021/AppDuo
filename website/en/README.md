@@ -53,6 +53,20 @@ Different clones can receive their own notifications, keeping work and personal 
 
 For example, each of the three WeChat clones can receive messages for its own account. The notification source name and icon depend on the app and its macOS registration. AppDuo does not provide a push service or guarantee notifications after a clone has quit.
 
+## Dock and Notification Center screenshots
+
+These real screenshots show two WeChat instances: the original app in green and a WeWork clone in purple. They illustrate distinct icons and separate notifications; they are not screenshots of the three-identity configuration example.
+
+### Dock: distinct icons and unread badges
+
+![Original WeChat and the purple WeWork clone with separate unread badges in the macOS Dock](https://raw.githubusercontent.com/tamia6/AppDuo/main/docs/images/wechat-dock.png)
+
+### Notification Center: separate message notifications
+
+<img src="https://raw.githubusercontent.com/tamia6/AppDuo/main/docs/images/wechat-notifications.png" alt="Separate notifications from the purple WeWork clone and original green WeChat in macOS Notification Center" width="520">
+
+Notifications require app compatibility and permission in both the app and macOS.
+
 ## Downloads and automated builds
 
 Download from [Releases](https://github.com/tamia6/AppDuo/releases/latest): choose `AppDuo-arm64.dmg` for Apple Silicon or `AppDuo-x86_64.dmg` for Intel.

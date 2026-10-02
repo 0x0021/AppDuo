@@ -6,6 +6,20 @@
 
 使用 GPL-3.0 许可证，详见 [LICENSE](LICENSE)。
 
+## Dock 与通知中心实拍
+
+下面是原版微信（绿色）与 WeWork 分身（紫色）的实际截图，展示不同图标和分别接收通知的效果。截图展示两个微信实例；三个身份的配置示例不代表这两张实拍中有三个微信。
+
+### Dock：不同图标，分别显示未读角标
+
+![macOS Dock 中绿色微信与紫色 WeWork 分身，分别显示未读角标](docs/images/wechat-dock.png)
+
+### 通知中心：分别接收消息提醒
+
+<img src="docs/images/wechat-notifications.png" alt="macOS 通知中心中，紫色 WeWork 分身与绿色微信分别显示通知" width="520">
+
+通知需要目标应用兼容，并在应用和 macOS 中允许通知。
+
 ## 下载与自动构建
 
 从 [Releases](https://github.com/tamia6/AppDuo/releases/latest) 下载：Apple Silicon 选择 `AppDuo-arm64.dmg`，Intel 选择 `AppDuo-x86_64.dmg`。
