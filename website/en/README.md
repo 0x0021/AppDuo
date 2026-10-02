@@ -1,5 +1,7 @@
 # AppDuo
 
+[Website](https://tamia6.github.io/AppDuo/en/) · [中文官网](https://tamia6.github.io/AppDuo/) · [Download](https://github.com/tamia6/AppDuo/releases/latest)
+
 [简体中文](https://github.com/tamia6/AppDuo) · English
 
 AppDuo is a free, open-source native macOS app cloning tool. Give each clone its own name, icon, and data directory. Hard clones also use distinct process names, so proxy clients with process-based rules can route each clone through a different network exit.
