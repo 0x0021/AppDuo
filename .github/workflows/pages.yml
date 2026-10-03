@@ -5,6 +5,7 @@ on:
     paths:
       - 'website/**'
       - '.github/workflows/pages.yml'
+      - 'script/submit_indexnow.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -28,3 +29,6 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+      - name: Notify search engines with IndexNow
+        continue-on-error: true
+        run: python3 script/submit_indexnow.py

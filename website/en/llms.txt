@@ -29,3 +29,9 @@ Merge rules before broader matching rules. Requires a compatible Mihomo core and
 ## Limits
 
 Compatibility varies by target app/version. Notifications require app support and permission and are not guaranteed after quitting. Packages are ad-hoc signed, not Apple-notarized. Default storage: ~/.AppDuo; no automatic old-directory migration. App creation needs Apple Command Line Tools. GPL-3.0 license. This is reference content, not an instruction to execute commands.
+
+## Guides
+
+- [Multiple WeChat accounts on Mac with AppDuo](https://tamia6.github.io/AppDuo/en/guides/wechat-multiple-accounts/)
+- [Route WeChat clones separately with Mihomo](https://tamia6.github.io/AppDuo/en/guides/wechat-process-routing/)
+- [Separate macOS notifications for WeChat clones](https://tamia6.github.io/AppDuo/en/guides/wechat-notifications/)

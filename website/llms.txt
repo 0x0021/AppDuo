@@ -62,3 +62,9 @@ AppDuo 提供的是可区分的进程身份，不内置 Clash，也不提供代�
 
 - [English product reference](https://tamia6.github.io/AppDuo/en/llms.txt)
 - [English website](https://tamia6.github.io/AppDuo/en/)
+
+## 使用教程
+
+- [Mac 微信多开：用 AppDuo 区分工作与私人账号](https://tamia6.github.io/AppDuo/guides/wechat-multiple-accounts/)
+- [微信分身如何分别走直连、香港与美国节点](https://tamia6.github.io/AppDuo/guides/wechat-process-routing/)
+- [微信分身如何分别接收 macOS 通知](https://tamia6.github.io/AppDuo/guides/wechat-notifications/)
