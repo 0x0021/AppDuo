@@ -1,5 +1,7 @@
 # AppDuo
 
+简体中文 · [English](README.en.md)
+
 [官网](https://tamia6.github.io/AppDuo/) · [English website](https://tamia6.github.io/AppDuo/en/) · [下载](https://github.com/tamia6/AppDuo/releases/latest)
 
 原生 macOS 应用分身工具。界面使用 SwiftUI，克隆引擎、Mach-O 修改、签名编排、配置与命令行使用 Swift。
