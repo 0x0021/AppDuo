@@ -22,14 +22,14 @@ fi
 # SwiftPM resource bundles must live next to the app's Resources lookup root.
 for bundle in "$bin"/*.bundle; do
     [ -d "$bundle" ] || continue
-    /usr/bin/ditto "$bundle" "$app/Contents/Resources/$(basename "$bundle")"
+    /usr/bin/ditto "$bundle" "$app/$(basename "$bundle")"
 done
 # Reuse the SwiftPM icon instead of storing the same 1.6 MB image twice.
 resource_icon="$name"_CloneCore.bundle/Contents/Resources/Resources/AppIcon.icns
-if [[ ! -f "$app/Contents/Resources/$resource_icon" ]]; then
+if [[ ! -f "$app/$resource_icon" ]]; then
     resource_icon="$name"_CloneCore.bundle/Resources/AppIcon.icns
 fi
-test -f "$app/Contents/Resources/$resource_icon"
+test -f "$app/$resource_icon"
 ln -sf "$resource_icon" "$app/Contents/Resources/AppIcon.icns"
 cat > "$app/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
