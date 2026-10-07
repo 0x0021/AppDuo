@@ -52,7 +52,7 @@ cat > "$app/Contents/Info.plist" <<PLIST
 </dict></plist>
 PLIST
 /usr/bin/codesign --force --deep --sign - "$app"
-/usr/bin/codesign --verify --deep --strict "$app"
+bash script/check_packaged_app.sh "$app"
 case "$mode" in
  --build) ;;
  --dmg)

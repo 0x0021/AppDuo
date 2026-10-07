@@ -34,7 +34,7 @@ jobs:
             export APP_VERSION="${GITHUB_REF_NAME#v}"
           fi
           bash script/build_and_run.sh --dmg
-          bash script/check_packaged_app.sh dist/AppDuo.app
+          codesign --verify --deep --strict dist/AppDuo.app
           hdiutil verify "dist/AppDuo-$(uname -m).dmg"
           cd dist
           shasum -a 256 "AppDuo-$(uname -m).dmg" > "AppDuo-$(uname -m).dmg.sha256"
